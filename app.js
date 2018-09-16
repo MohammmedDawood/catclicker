@@ -1,3 +1,7 @@
+//catlist elements
+let catHdn = document.getElementsByClassName('cat');
+//button list element
+let buttons = document.getElementsByClassName("button");
 //creating HTML elements
 createHTML();
 function createHTML() {
@@ -9,6 +13,7 @@ function createHTML() {
         //create buttons
         let btn = document.createElement('button');
         btn.id = `button${num}`;
+        btn.setAttribute('class', 'button');
         btn.innerHTML = `cat ${num}`;
         catlist.appendChild(btn);
         //create images
@@ -23,10 +28,18 @@ function createHTML() {
 hideCats();
 
 function hideCats() {
-    let catHdn = document.getElementsByClassName('cat');
     for (let item of catHdn) {
         item.classList.add('hidden');
     }
 }
 //select a cat
-addEventListener
+selectCat();
+function selectCat() {
+    Array.from(buttons).forEach(function (element, index) {
+        element.addEventListener("click", function () {
+            hideCats();
+            catHdn[index].classList.remove('hidden');
+        });
+    });
+}
+
