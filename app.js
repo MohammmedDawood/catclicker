@@ -2,6 +2,9 @@
 let catHdn = document.getElementsByClassName('cat');
 //button list element
 let buttons = document.getElementsByClassName("button");
+let catClick = document.getElementsByClassName('clicker');
+let catCounter = document.getElementsByTagName('span');
+myArray = [1, 2, 3, 4, 5];
 //creating HTML elements
 createHTML();
 function createHTML() {
@@ -9,7 +12,7 @@ function createHTML() {
     catBtn.setAttribute('id', 'catlist'); // and make sure myclass has some styles in css
     document.body.appendChild(catBtn);
     const catlist = document.getElementById('catlist');
-    for (let num of [1, 2, 3, 4, 5]) {
+    for (let num of myArray) {
         //create buttons
         let btn = document.createElement('button');
         btn.id = `button${num}`;
@@ -32,6 +35,7 @@ function hideCats() {
         item.classList.add('hidden');
     }
 }
+
 //select a cat
 selectCat();
 function selectCat() {
@@ -39,6 +43,17 @@ function selectCat() {
         element.addEventListener("click", function () {
             hideCats();
             catHdn[index].classList.remove('hidden');
+            counter = Number(catCounter[index].innerHTML);
+        });
+    });
+}
+count();
+
+//count clicks
+function count() {
+    Array.from(catClick).forEach(function (element, index) {
+        element.addEventListener("click", function () {
+            catCounter[index].innerHTML =Number(catCounter[index].innerHTML)+1;
         });
     });
 }
