@@ -116,7 +116,7 @@ let View = {
                 let btn = document.createElement('button');
                 btn.id = `button${num}`;
                 btn.setAttribute('class', 'button');
-                btn.innerHTML = `cat ${model.cats[num].name}`;
+                btn.innerHTML = `${model.cats[num].name}`;
                 catlist.appendChild(btn);
                 //create images
                 let catImg = document.createElement('div');

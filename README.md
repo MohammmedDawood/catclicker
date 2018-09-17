@@ -9,4 +9,4 @@
 4. click on its Image.
 
 [Click here to play](https://mahmedtony73.github.io/catclicker/)
-![game preview](perview.PNG "game preview")
+![game preview](img/perview.PNG "game preview")
