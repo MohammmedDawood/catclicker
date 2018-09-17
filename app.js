@@ -81,6 +81,8 @@ let View = {
         let catHdn = document.getElementsByClassName('cat');
         //button list element
         let buttons = document.getElementsByClassName("button");
+        let catCounter = document.getElementsByTagName('span');
+
         //hide all cats
         hideCats();
 
@@ -96,8 +98,20 @@ let View = {
             Array.from(buttons).forEach(function (element, index) {
                 element.addEventListener("click", function () {
                     hideCats();
+                    if (index != Array.from(buttons).length-1){
+                    oldBtn =this.innerHTML;
                     catHdn[index].classList.remove('hidden');
                     counter = Number(catCounter[index].innerHTML);
+                    }else{
+                        //adding ana adimn button with input texfield
+                        let form = document.createElement('form');
+                        form.innerHTML = `Cat Name <input id = "rename" type="text" name="catName" value="${oldBtn}"><br>
+                        <input id= 'newName' type="submit" value="Rename" >`;
+                        document.body.appendChild(form);
+                        document.getElementById('newName').addEventListener('click',function() {
+                            oldBtn = document.getElementById('rename').value;
+                        });
+                    }
                 });
             });
         }
@@ -125,6 +139,12 @@ let View = {
                 catImg.innerHTML = `<span class="counter">0</span> clicks <br><img class="clicker" src=${model.cats[num].imgSrc}>`;
                 document.body.appendChild(catImg);
             }
+            //create admin button
+            let btnadmn = document.createElement('button');
+            btnadmn.id = `buttonadmin`;
+            btnadmn.setAttribute('class', 'button');
+            btnadmn.innerHTML = `ADMIN`;
+            catlist.appendChild(btnadmn);
         };
     })()
 };
