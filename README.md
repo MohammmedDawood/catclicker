@@ -3,7 +3,7 @@
 
 ## How to Play
 
-1. clone using **git clone ** or download the repositry to your local machine.
+1. Clone the repo and open up `index.html` in your browser of choice.repositry to your local machine.
 2. open index.html.
 3. select a cat.
 4. click on its Image.
